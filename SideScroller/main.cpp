@@ -1,4 +1,4 @@
-#include <SFML/Graphics.hpp>
+#include "sidescroller.h"
 
 int main()
 {
@@ -17,6 +17,7 @@ int main()
 			if (!background.loadFromFile("BackGround.png")) {}
 			sf::Sprite background(background);
 			window.draw(background);
+			drawFloor(window);
 			window.display();
 		}
 	}

@@ -148,10 +148,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="drawFloor.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\BackGround.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="drawFloor.h" />
+    <ClInclude Include="sidescroller.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
