@@ -2,7 +2,8 @@
 
 int main()
 {
-	sf::Window window(sf::VideoMode(800, 600), "Game Window");
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Game Window");
+	sf::Texture background;
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -13,8 +14,10 @@ int main()
 
 			window.setTitle("2D Side Scroller");
 			window.setVerticalSyncEnabled(true);
-			
-			
+			if (!background.loadFromFile("BackGround.png")) {}
+			sf::Sprite background(background);
+			window.draw(background);
+			window.display();
 		}
 	}
 	return 0;
