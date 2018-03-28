@@ -4,6 +4,7 @@ void drawFloor(sf::RenderWindow &window) {
 	sf::Texture brick;
 	if (!brick.loadFromFile("Brick1.png")) {}
 
+	//Draws 50 instances of the rectangle -- Will need to call addBrick when moving accross the screen
 	for (int i = 0; i < 50; i++) {
 		sf::RectangleShape Rect = sf::RectangleShape();
 		Rect.setTexture(&brick);
