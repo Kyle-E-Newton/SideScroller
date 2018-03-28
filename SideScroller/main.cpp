@@ -14,7 +14,7 @@ int main()
 
 			window.setTitle("2D Side Scroller");
 			window.setVerticalSyncEnabled(true);
-			if (!background.loadFromFile("BackGround.png")) {}
+			if (!background.loadFromFile("resources/BackGround.png")) {}
 			sf::Sprite background(background);
 			window.draw(background);
 			drawFloor(window);
