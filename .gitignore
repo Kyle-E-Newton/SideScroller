@@ -32,3 +32,5 @@
 *.app
 
 SideScroller\.VC\.VC\.opendb
+
+SideScroller\.VC\.db
