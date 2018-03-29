@@ -34,3 +34,5 @@
 SideScroller\.VC\.VC\.opendb
 
 SideScroller\.VC\.db
+
+*.tlog
