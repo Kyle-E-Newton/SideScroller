@@ -3,6 +3,7 @@
 void drawWindow(sf::RenderWindow &window) {
 
 	sf::Texture background;
+	Character p1;
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -17,6 +18,7 @@ void drawWindow(sf::RenderWindow &window) {
 			sf::Sprite background(background);
 			window.draw(background);
 			drawFloor(window);
+			p1.drawChar(window);
 			window.display();
 		}
 	}

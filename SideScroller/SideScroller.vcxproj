@@ -148,6 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="character.cpp" />
     <ClCompile Include="cScreen.cpp" />
     <ClCompile Include="drawFloor.cpp" />
     <ClCompile Include="main.cpp" />
@@ -157,6 +158,7 @@
     <Image Include="..\Resources\BackGround.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="character.h" />
     <ClInclude Include="cScreen.h" />
     <ClInclude Include="drawFloor.h" />
     <ClInclude Include="sidescroller.h" />

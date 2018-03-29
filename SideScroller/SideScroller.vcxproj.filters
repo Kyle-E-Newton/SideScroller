@@ -27,6 +27,9 @@
     <ClCompile Include="cScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="character.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\BackGround.png">
@@ -44,6 +47,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
