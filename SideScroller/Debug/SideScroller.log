@@ -1,11 +1,2 @@
-﻿  window.cpp
-  main.cpp
-  cScreen.cpp
-  character.cpp
-  Generating Code...
-  Compiling...
-  drawFloor.cpp
-d:\development\c++\sidescroller\sidescroller\drawfloor.cpp(12): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-  SideScroller.vcxproj -> D:\Development\C++\SideScroller\Debug\SideScroller.exe
+﻿  SideScroller.vcxproj -> D:\Development\C++\SideScroller\Debug\SideScroller.exe
   SideScroller.vcxproj -> D:\Development\C++\SideScroller\Debug\SideScroller.pdb (Full PDB)
