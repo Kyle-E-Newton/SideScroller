@@ -4,7 +4,7 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Game Window");
 
-//	std::vector
+	std::vector<cScreen>;
 
 	drawWindow(window);
 	
