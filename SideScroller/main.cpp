@@ -2,24 +2,11 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Game Window");
-	sf::Texture background;
+	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Game Window");
 
-	while (window.isOpen()) {
-		sf::Event event;
-		while (window.pollEvent(event)) {
-			if (event.type == sf::Event::Closed) {
-				window.close();
-			}
+	std::vector
 
-			window.setTitle("2D Side Scroller");
-			window.setVerticalSyncEnabled(true);
-			if (!background.loadFromFile("resources/BackGround.png")) {}
-			sf::Sprite background(background);
-			window.draw(background);
-			drawFloor(window);
-			window.display();
-		}
-	}
+	drawWindow(window);
+	
 	return 0;
 }
