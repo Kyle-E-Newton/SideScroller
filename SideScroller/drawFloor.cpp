@@ -13,3 +13,14 @@ void drawFloor(sf::RenderWindow &window) {
 		window.draw(Rect);
 	}
 }
+
+void addBrick(sf::RenderWindow &window) {
+	//Adds Brick at edge of window, has to be called each time
+	sf::Texture brick;
+	if (!brick.loadFromFile("Brick1.png")) {}
+	sf::RectangleShape Rect = sf::RectangleShape();
+	Rect.setTexture(&brick);
+	Rect.setSize(sf::Vector2f(32, 32));
+	Rect.setPosition(sf::Vector2f(768, 568));
+	window.draw(Rect);
+}
