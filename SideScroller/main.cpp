@@ -18,7 +18,7 @@ int main()
 			sf::Sprite background(background);
 			window.draw(background);
 			drawFloor(window);
-			window.display();
+			//window.display();
 		}
 	}
 	return 0;
