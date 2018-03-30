@@ -6,7 +6,7 @@ int main()
 	
 
 	drawMenu(window);
-	drawWindow(window);
+	//drawWindow(window);
 	
 	return 0;
 }
