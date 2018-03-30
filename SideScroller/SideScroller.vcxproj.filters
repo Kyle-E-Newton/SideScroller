@@ -46,10 +46,10 @@
     <ClInclude Include="window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cScreen.h">
+    <ClInclude Include="character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="character.h">
+    <ClInclude Include="screens.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
