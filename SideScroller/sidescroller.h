@@ -3,8 +3,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "screens.hpp"
-
 #include "drawFloor.h"
 
 #include "window.h"
