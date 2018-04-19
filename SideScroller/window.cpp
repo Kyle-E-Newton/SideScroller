@@ -1,6 +1,6 @@
 #include "sidescroller.h"
 
-void drawWindow(sf::RenderWindow &window) {
+void runGame::drawWindow(sf::RenderWindow &window) {
 
 	sf::Texture background;
 	//Makes the moveable character
@@ -10,6 +10,8 @@ void drawWindow(sf::RenderWindow &window) {
 	//checks for a character jumping
 	bool isJumping = false;
 	p1.setPos({ 50, 1022 });
+
+	gameFloor baseFloor;
 
 	//window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
 	window.create(sf::VideoMode(600, 600), "Game Window");
@@ -55,15 +57,16 @@ void drawWindow(sf::RenderWindow &window) {
 			sf::Sprite background(background);
 			window.setVerticalSyncEnabled(true);
 			window.draw(background);
-			drawFloor(window);
-			drawLevel(window);
+
+			baseFloor.drawFloor(window);
+			baseFloor.drawLevel(window);
 			p1.drawTo(window);
 			window.display();
 			
 		}
 	}
 }
-void drawMenu(sf::RenderWindow &window) {
+void runGame::drawMenu(sf::RenderWindow &window) {
 
 	sf::Texture background;
 

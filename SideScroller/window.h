@@ -7,5 +7,8 @@
 //Level Selector
 //Display High Score
 
-void drawWindow(sf::RenderWindow &window);
-void drawMenu(sf::RenderWindow &window);
+class runGame {
+public:
+	void drawWindow(sf::RenderWindow &window);
+	void drawMenu(sf::RenderWindow &window);
+};

@@ -151,7 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="character.cpp" />
-    <ClCompile Include="drawFloor.cpp" />
+    <ClCompile Include="gameFloor.cpp" />
     <ClCompile Include="Gravity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="window.cpp" />
@@ -161,7 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
-    <ClInclude Include="drawFloor.h" />
+    <ClInclude Include="gameFloor.h" />
     <ClInclude Include="Gravity.h" />
     <ClInclude Include="sidescroller.h" />
     <ClInclude Include="window.h" />

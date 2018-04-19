@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "drawFloor.h"
+#include "gameFloor.h"
 
 #include "window.h"
 
