@@ -14,7 +14,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	gameFloor baseFloor;
 
 	//window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
-	window.create(sf::VideoMode(600, 600), "Game Window");
+	//window.create(sf::VideoMode(600, 600), "Game Window");
 
 	sf::View View(sf::FloatRect(0, 480, 600, 600));
 	window.setView(View);
@@ -68,12 +68,19 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 
 	sf::Texture background;
 
+	bool menuOpen = true;
 
 	sf::Event event;
-	while (window.isOpen()) {
+	while (menuOpen) {
 		while (window.pollEvent(event)) {
-			if (event.type == sf::Event::Closed) {
+			if ((event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) || event.type == sf::Event::Closed) {
+				window.close();
+				menuOpen = false;
+			}
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return) {
 				window.clear();
+				menuOpen = false;
+				drawGameLevelOne(window);
 			}
 
 			window.setTitle("2D Side Scroller");
