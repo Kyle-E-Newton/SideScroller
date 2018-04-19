@@ -32,11 +32,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Resources\BackGround.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="sidescroller.h">
       <Filter>Header Files</Filter>
     </ClInclude>

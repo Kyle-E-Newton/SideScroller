@@ -157,9 +157,6 @@
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Resources\BackGround.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="character.h" />
     <ClInclude Include="gameFloor.h" />
     <ClInclude Include="Gravity.h" />
