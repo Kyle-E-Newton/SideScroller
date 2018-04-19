@@ -1,6 +1,6 @@
 #include "sidescroller.h"
 
-void runGame::drawWindow(sf::RenderWindow &window) {
+void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 
 	sf::Texture background;
 	//Makes the moveable character
@@ -14,12 +14,11 @@ void runGame::drawWindow(sf::RenderWindow &window) {
 	gameFloor baseFloor;
 
 	//window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
-	window.create(sf::VideoMode(600, 600), "Game Window");
+	//window.create(sf::VideoMode(600, 600), "Game Window");
 
 	sf::View View(sf::FloatRect(0, 480, 600, 600));
 	window.setView(View);
 	sf::View defaultView = window.getDefaultView();
-
 	while (window.isOpen()) {
 		sf::Event event;
 
@@ -62,7 +61,6 @@ void runGame::drawWindow(sf::RenderWindow &window) {
 			baseFloor.drawLevel(window);
 			p1.drawTo(window);
 			window.display();
-			
 		}
 	}
 }
@@ -70,12 +68,19 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 
 	sf::Texture background;
 
+	bool menuOpen = true;
 
-	while (window.isOpen()) {
-		sf::Event event;
+	sf::Event event;
+	while (menuOpen) {
 		while (window.pollEvent(event)) {
-			if (event.type == sf::Event::Closed) {
+			if ((event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) || event.type == sf::Event::Closed) {
 				window.close();
+				menuOpen = false;
+			}
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return) {
+				window.clear();
+				menuOpen = false;
+				drawGameLevelOne(window);
 			}
 
 			window.setTitle("2D Side Scroller");
@@ -87,3 +92,38 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 		}
 	}
 }
+
+void runGame::Game(sf::RenderWindow &window) {
+	sf::Texture background;
+	//Makes the moveable character
+	Character p1({ 28, 28 }, sf::Color::Green);
+	//sets for gravity
+	Gravity g;
+	//checks for a character jumping
+	bool isJumping = false;
+	p1.setPos({ 50, 1022 });
+
+	//What Window
+	bool menuRunning = true;
+	bool gameRunning = false;
+
+	gameFloor baseFloor;
+
+	//window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
+	window.create(sf::VideoMode(600, 600), "Game Window");
+
+	sf::View View(sf::FloatRect(0, 480, 600, 600));
+	window.setView(View);
+	sf::View defaultView = window.getDefaultView();
+
+		while (menuRunning) {
+			drawMenu(window);
+			menuRunning = false;
+			gameRunning = true;
+		}
+	
+		while(gameRunning){
+			drawGameLevelOne(window);
+			gameRunning = false;
+		}
+	}

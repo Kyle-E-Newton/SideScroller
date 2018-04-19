@@ -9,6 +9,7 @@
 
 class runGame {
 public:
-	void drawWindow(sf::RenderWindow &window);
+	void drawGameLevelOne(sf::RenderWindow &window);
 	void drawMenu(sf::RenderWindow &window);
+	void Game(sf::RenderWindow &window);
 };

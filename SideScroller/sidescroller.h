@@ -11,5 +11,7 @@
 
 #include "Gravity.h"
 
+#include "button.h"
+
 #define WINDOW_HEIGHT 600
 #define WINDOW_WIDTH 800
