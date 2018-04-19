@@ -3,7 +3,7 @@
 //Open Window
 
 //Menu
-	//Credits
+//Credits
 //Level Selector
 //Display High Score
 

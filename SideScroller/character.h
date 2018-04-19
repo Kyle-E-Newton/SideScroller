@@ -5,17 +5,10 @@
 class Character
 {
 public:
-	Character();
-	//setters
-
-	//getters
-	sf::RectangleShape getShape();
-	sf::Vector2f getPosition();
-
-	//functions
-	void drawChar(sf::RenderWindow &window);
-
+	Character(sf::Vector2f size, sf::Color color);
+	void drawTo(sf::RenderWindow &window);
+	void move(sf::Vector2f distance);
+	void setPos(sf::Vector2f newPos);
 private:
-	sf::RectangleShape shape;
-	sf::Vector2f position;
+	sf::RectangleShape character;
 };

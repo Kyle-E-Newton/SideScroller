@@ -1,26 +1,22 @@
 #include "character.h"
 
-Character::Character()
+Character::Character(sf::Vector2f size, sf::Color color)
 {
-	sf::RectangleShape shape(sf::Vector2f(100.0f, 100.0f));
-	sf::Vector2f position(sf::Vector2f(100, 100));
-	shape.setPosition(position);
-	shape.setFillColor(sf::Color::Red);
+	character.setSize(size);
+	character.setFillColor(color);
 }
 
-sf::RectangleShape Character::getShape()
+void Character::drawTo(sf::RenderWindow & window)
 {
-	return shape;
+	window.draw(character);
 }
 
-sf::Vector2f Character::getPosition()
+void Character::move(sf::Vector2f distance)
 {
-	return position;
+	character.move(distance);
 }
 
-void Character::drawChar(sf::RenderWindow & window)
+void Character::setPos(sf::Vector2f newPos)
 {
-
-	window.draw(this->getShape());
+	character.setPosition(newPos);
 }
-

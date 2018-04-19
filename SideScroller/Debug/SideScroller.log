@@ -1,3 +1,12 @@
-﻿  main.cpp
+﻿cl : Command line warning D9002: ignoring unknown option '/fs'
+  window.cpp
+d:\development\c++\sidescroller\sidescroller\gravity.h(17): warning C4305: 'initializing': truncation from 'double' to 'const float'
+d:\development\c++\sidescroller\sidescroller\gravity.h(18): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  drawFloor.cpp
+  character.cpp
+  Gravity.cpp
   SideScroller.vcxproj -> D:\Development\C++\SideScroller\Debug\SideScroller.exe
   SideScroller.vcxproj -> D:\Development\C++\SideScroller\Debug\SideScroller.pdb (Full PDB)

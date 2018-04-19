@@ -89,6 +89,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>D:\SFML\include;C:\Users\Dustin\Documents\Development Games\SFML-2.4.2-windows-vc14-32-bit\SFML-2.4.2\include;E:\Libraries\C++\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/fs %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,6 +121,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>D:\SFML\include;C:\Users\Dustin\Documents\Development Games\SFML-2.4.2-windows-vc14-32-bit\SFML-2.4.2\include;E:\Libraries\C++\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/fs %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,8 +151,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="character.cpp" />
-    <ClCompile Include="cScreen.cpp" />
     <ClCompile Include="drawFloor.cpp" />
+    <ClCompile Include="Gravity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
@@ -160,7 +162,7 @@
   <ItemGroup>
     <ClInclude Include="character.h" />
     <ClInclude Include="drawFloor.h" />
-    <ClInclude Include="screens.hpp" />
+    <ClInclude Include="Gravity.h" />
     <ClInclude Include="sidescroller.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
