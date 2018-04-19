@@ -7,7 +7,7 @@ int main()
 	runGame obj;
 
 	//drawMenu(window);
-	obj.drawWindow(window);
+	obj.Game(window);
 
 	
 	return 0;

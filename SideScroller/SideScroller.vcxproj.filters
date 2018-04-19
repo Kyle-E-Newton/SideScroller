@@ -30,6 +30,9 @@
     <ClCompile Include="gameFloor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\BackGround.png">
@@ -50,6 +53,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="gameFloor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
