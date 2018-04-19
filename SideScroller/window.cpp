@@ -17,7 +17,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	//window.create(sf::VideoMode(600, 600), "Game Window");
 
 	sf::View View(sf::FloatRect(0, 480, 600, 600));
-	window.setView(View);
+	//window.setView(View);
 	sf::View defaultView = window.getDefaultView();
 	while (window.isOpen()) {
 		sf::Event event;

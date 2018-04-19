@@ -82,15 +82,47 @@ void gameFloor::drawLevel(sf::RenderWindow &window) {
 	if (!spikes.loadFromFile("resources/spikes.png")) {}
 	Rect.setTexture(&spikes);
 	Rect.setPosition(sf::Vector2f(1344, 1018));
+
+	drawPyramind(window, 1504, 1018);
 	window.draw(Rect);
 }
 
 void gameFloor::drawPyramind(sf::RenderWindow &window, float startX, float startY) {
 	sf::Texture brick;
-	if (!brick.loadFromFile("resources/Brick2.png")) {}
+	if (!brick.loadFromFile("resources/Brick1.png")) {}
 	sf::RectangleShape Rect = sf::RectangleShape();
 	Rect.setTexture(&brick);
 	Rect.setSize(sf::Vector2f(32, 32));
 
-
+	//Bottom Layer
+	for (int i = 0; i < 5; i++) {
+		Rect.setPosition(startX + (32 * i), startY);
+		window.draw(Rect);
+	}
+	//2nd Layer
+	startX += 32;
+	startY -= 32;
+	for (int i = 0; i < 4; i++) {
+		Rect.setPosition(startX + (32 * i), startY);
+		window.draw(Rect);
+	}
+	//3rd Layer
+	startX += 32;
+	startY -= 32;
+	for (int i = 0; i < 3; i++) {
+		Rect.setPosition(startX + (32 * i), startY);
+		window.draw(Rect);
+	}
+	//4th Layer
+	startX += 32;
+	startY -= 32;
+	for (int i = 0; i < 2; i++) {
+		Rect.setPosition(startX + (32 * i), startY);
+		window.draw(Rect);
+	}
+	//5th Layer
+	startX += 32;
+	startY -= 32;
+	Rect.setPosition(startX, startY);
+	window.draw(Rect);
 }
