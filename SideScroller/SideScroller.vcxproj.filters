@@ -24,10 +24,17 @@
     <ClCompile Include="character.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="character.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gravity.cpp">
+=======
     <ClCompile Include="Gravity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="gameFloor.cpp">
+>>>>>>> master
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,9 +54,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Gravity.h">
+<<<<<<< HEAD
+=======
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="gameFloor.h">
+>>>>>>> master
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
