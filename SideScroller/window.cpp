@@ -19,7 +19,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	sf::View View(sf::FloatRect(0, 480, 600, 600));
 	window.setView(View);
 	sf::View defaultView = window.getDefaultView();
-
+	while (window.isOpen()) {
 		sf::Event event;
 
 		while (window.pollEvent(event)) {
@@ -61,7 +61,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			baseFloor.drawLevel(window);
 			p1.drawTo(window);
 			window.display();
-			
+		}
 	}
 }
 void runGame::drawMenu(sf::RenderWindow &window) {
@@ -69,11 +69,11 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 	sf::Texture background;
 
 
+	sf::Event event;
 	while (window.isOpen()) {
-		sf::Event event;
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
-				window.close();
+				window.clear();
 			}
 
 			window.setTitle("2D Side Scroller");
@@ -97,8 +97,8 @@ void runGame::Game(sf::RenderWindow &window) {
 	p1.setPos({ 50, 1022 });
 
 	//What Window
-	bool menuRunning = false;
-	bool gameRunning = true;
+	bool menuRunning = true;
+	bool gameRunning = false;
 
 	gameFloor baseFloor;
 
@@ -109,14 +109,14 @@ void runGame::Game(sf::RenderWindow &window) {
 	window.setView(View);
 	sf::View defaultView = window.getDefaultView();
 
-	while (window.isOpen()) {
-
 		while (menuRunning) {
-			
+			drawMenu(window);
+			menuRunning = false;
+			gameRunning = true;
 		}
 	
 		while(gameRunning){
 			drawGameLevelOne(window);
+			gameRunning = false;
 		}
 	}
-}
