@@ -13,6 +13,7 @@ public:
 
 	void drawButton(sf::RenderWindow &window);
 	bool isButtonClicked(sf::Vector2i pos);
+	void insertText(sf::RenderWindow &window, std::string text);
 private:
 	float leftX;
 	float rightX;

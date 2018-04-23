@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <string>
 
 #include "gameFloor.h"
 
@@ -15,3 +16,5 @@
 
 #define WINDOW_HEIGHT 600
 #define WINDOW_WIDTH 800
+
+using std::string;

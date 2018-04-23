@@ -24,7 +24,10 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 				window.close();
 			}
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-				window.close();
+				window.clear();
+				window.setView(defaultView);
+				drawMenu(window);
+				
 			}
 			if (event.type == sf::Event::KeyReleased)
 			{
@@ -99,9 +102,13 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 
 			window.setTitle("2D Side Scroller");
 			window.setVerticalSyncEnabled(true);
-			if (!background.loadFromFile("resources/MenuTest.png")) {}
+			if (!background.loadFromFile("resources/Background.png")) {}
 			sf::Sprite background(background);
 			window.draw(background);
+
+			bQuit.insertText(window, "Quit");
+			bCredits.insertText(window, "Credits");
+			bLevelOne.insertText(window, "Level 1");
 
 			bQuit.drawButton(window);
 			bCredits.drawButton(window);
@@ -114,7 +121,7 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 void runGame::drawCredits(sf::RenderWindow &window) {
 	sf::Texture background;
 
-	button bMain(272, 450, 947, 1045);
+	button bMain(272, 520, 947, 1045);
 
 	sf::Event event;
 	while (window.isOpen()) {
@@ -133,10 +140,11 @@ void runGame::drawCredits(sf::RenderWindow &window) {
 
 			window.setTitle("2D Side Scroller");
 			window.setVerticalSyncEnabled(true);
-			if (!background.loadFromFile("resources/MenuTest.png")) {}
+			if (!background.loadFromFile("resources/Background.png")) {}
 			sf::Sprite background(background);
 			window.draw(background);
 
+			bMain.insertText(window, "Main Menu");
 			bMain.drawButton(window);
 			window.display();
 		}

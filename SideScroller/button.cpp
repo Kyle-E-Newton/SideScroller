@@ -36,7 +36,9 @@ void button::drawButton(sf::RenderWindow &window)
 	sf::RectangleShape b;
 	b.setSize(sf::Vector2f(this->rightX - this->leftX, this->topY - this->bottomY));
 	b.setPosition(this->leftX, this->bottomY);
-	b.setFillColor(sf::Color::Red);
+	b.setFillColor(sf::Color::Transparent);
+	b.setOutlineColor(sf::Color::Black);
+	b.setOutlineThickness(10);
 	window.draw(b);
 }
 
@@ -49,4 +51,16 @@ bool button::isButtonClicked(sf::Vector2i pos) {
 	}
 	else
 		return false;
+}
+void button::insertText(sf::RenderWindow &window, std::string text) {
+	sf::Font comicSans;
+	if (!comicSans.loadFromFile("resources/fonts/comicSans.ttf")) {}
+	
+	sf::Text drawText;
+	drawText.setFont(comicSans);
+	drawText.setPosition(sf::Vector2f(leftX, topY));
+	drawText.setFillColor(sf::Color::Black);
+	drawText.setCharacterSize(50);
+	drawText.setString(text);
+	window.draw(drawText);
 }
