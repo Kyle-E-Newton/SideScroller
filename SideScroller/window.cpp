@@ -13,10 +13,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 
 	gameFloor baseFloor;
 
-	//window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
-	//window.create(sf::VideoMode(600, 600), "Game Window");
-
-	sf::View View(sf::FloatRect(0, 480, 600, 600));
+	sf::View View(sf::FloatRect(0, 580, 700, 500));
 	window.setView(View);
 	sf::View defaultView = window.getDefaultView();
 	while (window.isOpen()) {
@@ -69,9 +66,9 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 	sf::Texture background;
 
 	bool menuOpen = true;
-	button bLevelOne(272, 372, 1000, 1042);
-
-	//window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
+	button bQuit(272, 450, 947, 1045);
+	button bCredits(272, 450, 747, 845);
+	button bLevelOne(272, 450, 547, 645);
 
 	sf::Event event;
 	while (menuOpen) {
@@ -85,11 +82,19 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 				menuOpen = false;
 				drawGameLevelOne(window);
 			}
-			//std::cout << sf::Mouse::getPosition().x << " " << sf::Mouse::getPosition().y << std::endl;
-			if (event.type == sf::Event::MouseButtonPressed && bLevelOne.isButtonClicked(sf::Mouse::getPosition(window))) {
+			if (event.type == sf::Event::MouseButtonPressed && bLevelOne.isButtonClicked(sf::Mouse::getPosition())) {
 				window.clear();
 				menuOpen = false;
 				drawGameLevelOne(window);
+			}
+			if (event.type == sf::Event::MouseButtonPressed && bQuit.isButtonClicked(sf::Mouse::getPosition())) {
+				window.close();
+				menuOpen = false;
+			}
+			if (event.type == sf::Event::MouseButtonPressed && bCredits.isButtonClicked(sf::Mouse::getPosition())) {
+				window.clear();
+				menuOpen = false;
+				drawCredits(window);
 			}
 
 			window.setTitle("2D Side Scroller");
@@ -98,8 +103,41 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 			sf::Sprite background(background);
 			window.draw(background);
 
-			bLevelOne.setFillColor(sf::Color::Red);
+			bQuit.drawButton(window);
+			bCredits.drawButton(window);
 			bLevelOne.drawButton(window);
+			window.display();
+		}
+	}
+}
+
+void runGame::drawCredits(sf::RenderWindow &window) {
+	sf::Texture background;
+
+	button bMain(272, 450, 947, 1045);
+
+	sf::Event event;
+	while (window.isOpen()) {
+		while (window.pollEvent(event)) {
+			if ((event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) || event.type == sf::Event::Closed) {
+				window.close();
+			}
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return) {
+				window.clear();
+				drawGameLevelOne(window);
+			}
+			if (event.type == sf::Event::MouseButtonPressed && bMain.isButtonClicked(sf::Mouse::getPosition())) {
+				window.clear();
+				drawMenu(window);
+			}
+
+			window.setTitle("2D Side Scroller");
+			window.setVerticalSyncEnabled(true);
+			if (!background.loadFromFile("resources/MenuTest.png")) {}
+			sf::Sprite background(background);
+			window.draw(background);
+
+			bMain.drawButton(window);
 			window.display();
 		}
 	}
@@ -121,21 +159,16 @@ void runGame::Game(sf::RenderWindow &window) {
 
 	gameFloor baseFloor;
 
-	//window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
-	window.create(sf::VideoMode(600, 600), "Game Window");
+	window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
 
-	sf::View View(sf::FloatRect(0, 480, 600, 600));
-	window.setView(View);
-	sf::View defaultView = window.getDefaultView();
-
-		while (menuRunning) {
-			drawMenu(window);
-			menuRunning = false;
-			gameRunning = true;
-		}
-	
-		while(gameRunning){
-			drawGameLevelOne(window);
-			gameRunning = false;
-		}
+	while (menuRunning) {
+		drawMenu(window);
+		menuRunning = false;
+		gameRunning = true;
 	}
+	
+	while(gameRunning){
+		drawGameLevelOne(window);
+		gameRunning = false;
+	}
+}

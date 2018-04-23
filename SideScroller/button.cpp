@@ -36,6 +36,7 @@ void button::drawButton(sf::RenderWindow &window)
 	sf::RectangleShape b;
 	b.setSize(sf::Vector2f(this->rightX - this->leftX, this->topY - this->bottomY));
 	b.setPosition(this->leftX, this->bottomY);
+	b.setFillColor(sf::Color::Red);
 	window.draw(b);
 }
 

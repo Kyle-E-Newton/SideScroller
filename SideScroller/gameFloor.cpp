@@ -2,7 +2,7 @@
 
 void gameFloor::drawFloor(sf::RenderWindow &window) {
 	sf::Texture brick;
-	if (!brick.loadFromFile("resources/Brick2.png")) {}
+	if (!brick.loadFromFile("resources/Brick1.png")) {}
 
 	//Draws 50 instances of the rectangle -- Will need to call addBrick when moving accross the screen
 	for (int i = 0; i < 60; i++) {
@@ -17,7 +17,7 @@ void gameFloor::drawFloor(sf::RenderWindow &window) {
 void gameFloor::drawLevel(sf::RenderWindow &window) {
 	//Base Code
 	sf::Texture brick;
-	if (!brick.loadFromFile("resources/Brick2.png")) {}
+	if (!brick.loadFromFile("resources/Brick1.png")) {}
 	sf::RectangleShape Rect = sf::RectangleShape();
 	Rect.setTexture(&brick);
 	Rect.setSize(sf::Vector2f(32, 32));

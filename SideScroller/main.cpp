@@ -2,7 +2,7 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Game Window");
+	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "GameWindow", sf::Style::None);
 	
 	runGame obj;
 
