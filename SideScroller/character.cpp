@@ -25,3 +25,6 @@ int Character::getY()
 {
 	return character.getPosition().y;
 }
+int Character::getX() {
+	return character.getPosition().x;
+}
