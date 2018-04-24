@@ -9,10 +9,14 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	Gravity g;
 	//checks for a character jumping
 	bool isJumping = false;
-	p1.setPos({ 50, 1022 });
+	
+	//time 
+	sf::Clock deltaTime;
+	sf::Vector2f velocity;
+	sf::Vector2f position;
 
 	gameFloor baseFloor;
-
+	p1.setPos({ 50, 1022 });
 	sf::View View(sf::FloatRect(0, 580, 700, 500));
 	window.setView(View);
 	sf::View defaultView = window.getDefaultView();
@@ -29,48 +33,67 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 				drawMenu(window);
 				
 			}
-			// Player movement
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Space)
 			{
-				p1.move({ 0, -g.getMs() });
-				isJumping = true;
+				isJumping = false;
 			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-			{
-				p1.move({ -g.getMs(), 0 });
-			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-			{
-				p1.move({ g.getMs(), 0 });
-			}
-
-			while (window.pollEvent(event))
-			{
-				switch (event.type)
-				{
-				case sf::Event::KeyReleased:
-					isJumping = false;
-				}
-			}
-
-			if (p1.getY() < g.getGh() && isJumping == false)
-			{
-				p1.move({ 0, g.getGs() });
-			}
-			//Gravity
+		
 			
-			window.setTitle("2D Side Scroller");
-			window.setVerticalSyncEnabled(true);
-			if (!background.loadFromFile("resources/BackGround.png")) {}
-			sf::Sprite background(background);
-			window.setVerticalSyncEnabled(true);
-			window.draw(background);
-
-			baseFloor.drawFloor(window);
-			baseFloor.drawLevel(window);
-			p1.drawTo(window);
-			window.display();
 		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			p1.move({ 0, -22 });
+
+			isJumping = true;
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{
+
+			velocity.x -= g.getMs();
+		}
+		else
+		{
+			velocity.x += g.getMs();
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		{
+			velocity.x += g.getMs();
+		}
+		else
+		{
+			velocity.x -= g.getMs();
+		}
+
+		if (velocity.x < -g.getmaxS()) velocity.x = -g.getmaxS();
+		if (velocity.x >  g.getmaxS()) velocity.x = g.getmaxS();
+
+		if (p1.getY() < g.getGh() && isJumping == false)
+		{
+			velocity.y += g.getMs();
+			p1.move(position);
+		}
+
+
+		position += velocity;
+		p1.move(position);
+		
+	
+		
+
+		window.setTitle("2D Side Scroller");
+		window.setVerticalSyncEnabled(true);
+		if (!background.loadFromFile("resources/BackGround.png")) {}
+		sf::Sprite background(background);
+		window.setVerticalSyncEnabled(true);
+		window.draw(background);
+
+		baseFloor.drawFloor(window);
+		baseFloor.drawLevel(window);
+		p1.drawTo(window);
+		window.display();
+	
 	}
 }
 void runGame::drawMenu(sf::RenderWindow &window) {

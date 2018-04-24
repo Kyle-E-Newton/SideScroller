@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <string>
+#include <ctime>
 
 #include "gameFloor.h"
 

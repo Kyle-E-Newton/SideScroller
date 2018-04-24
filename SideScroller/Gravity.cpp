@@ -19,3 +19,13 @@ float Gravity::getMs()
 {
 	return moveSpeed;
 }
+
+float Gravity::getdMs()
+{
+	return dMoveSpeed;
+}
+
+float Gravity::getmaxS()
+{
+	return 4.0f;
+}
