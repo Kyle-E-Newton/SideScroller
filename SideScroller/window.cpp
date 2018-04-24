@@ -212,6 +212,12 @@ void runGame::drawHighScoreScreen(sf::RenderWindow &window) {
 
 	button bMain(272, 520, 947, 1045);
 
+	scores HighScores;
+	std::vector<scores> Scores;
+
+	Scores = HighScores.readFromFile();
+	std::cout << Scores[0].getName() << std::endl;
+
 	sf::Event event;
 	while (window.isOpen()) {
 		while (window.pollEvent(event)) {

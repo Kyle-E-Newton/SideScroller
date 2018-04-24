@@ -1,9 +1,10 @@
 #include "networking.h"
 
 bool networking::connectToServer() {
-	FTP.connect("ftp://144.217.86.151");
-	FTP.login("vnc", "VNCPassword");
+	FTP.connect("144.217.86.151");
 	sf::Ftp::Response response;
+	response = FTP.login("vnc", "VNCPassword");
+	
 	response = FTP.login();
 	if (response.isOk()) {
 		return true;
