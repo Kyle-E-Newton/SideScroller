@@ -7,6 +7,7 @@
 #include <string>
 #include <ctime>
 #include <fstream>
+#include <vector>
 
 #include "gameFloor.h"
 
@@ -21,5 +22,7 @@
 #include "coin.h"
 
 #include "networking.h"
+
+#include "scores.h"
 
 using std::string;
