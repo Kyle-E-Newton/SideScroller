@@ -156,6 +156,7 @@
     <ClCompile Include="gameFloor.cpp" />
     <ClCompile Include="Gravity.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="networking.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +165,7 @@
     <ClInclude Include="coin.h" />
     <ClInclude Include="gameFloor.h" />
     <ClInclude Include="Gravity.h" />
+    <ClInclude Include="networking.h" />
     <ClInclude Include="sidescroller.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
