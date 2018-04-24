@@ -101,7 +101,8 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 			}
 
 			window.setTitle("2D Side Scroller");
-			window.setVerticalSyncEnabled(true);
+			//window.setVerticalSyncEnabled(true);
+			window.setFramerateLimit(60);
 			if (!background.loadFromFile("resources/Background.png")) {}
 			sf::Sprite background(background);
 			window.draw(background);
