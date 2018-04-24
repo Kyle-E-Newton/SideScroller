@@ -20,3 +20,8 @@ void Character::setPos(sf::Vector2f newPos)
 {
 	character.setPosition(newPos);
 }
+
+int Character::getY()
+{
+	return character.getPosition().y;
+}

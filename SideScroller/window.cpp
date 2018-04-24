@@ -29,27 +29,36 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 				drawMenu(window);
 				
 			}
-			if (event.type == sf::Event::KeyReleased)
-			{
-				if (event.key.code == sf::Keyboard::W)
-				{
-					isJumping = false;
-				}
-			}
-			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::W)
+			// Player movement
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			{
 				p1.move({ 0, -g.getMs() });
 				isJumping = true;
 			}
-			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::A)
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 			{
 				p1.move({ -g.getMs(), 0 });
 			}
-			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::D)
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 			{
 				p1.move({ g.getMs(), 0 });
 			}
 
+			while (window.pollEvent(event))
+			{
+				switch (event.type)
+				{
+				case sf::Event::KeyReleased:
+					isJumping = false;
+				}
+			}
+
+			if (p1.getY() < g.getGh() && isJumping == false)
+			{
+				p1.move({ 0, g.getGs() });
+			}
+			//Gravity
+			
 			window.setTitle("2D Side Scroller");
 			window.setVerticalSyncEnabled(true);
 			if (!background.loadFromFile("resources/BackGround.png")) {}

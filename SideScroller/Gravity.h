@@ -14,6 +14,6 @@ public:
 protected:
 	//gravity const variables
 	const int groundheight = 1022;
-	const float gravitySpeed = 0.3;
-	const float moveSpeed = 0.4;
+	const float gravitySpeed = 4.0f;
+	const float moveSpeed = 6.0f;
 };
