@@ -1,2 +1,6 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
+<<<<<<< master
 Debug|Win32|C:\Users\Dustin\Documents\Development Games\SideScroller\|
+=======
+Debug|Win32|E:\Development\SideScroller\|
+>>>>>>> Basic Networking Screen
