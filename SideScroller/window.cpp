@@ -70,8 +70,8 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			baseFloor.drawLevel(window);
 			p1.drawTo(window);
 
-			View.setCenter(sf::Vector2f(p1.getX() + 300, 832));
-			window.setView(View);
+			//View.setCenter(sf::Vector2f(p1.getX() + 300, 832));
+			window.setView(defaultView);
 
 			window.display();
 		}
