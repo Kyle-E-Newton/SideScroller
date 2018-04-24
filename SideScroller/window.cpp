@@ -14,7 +14,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	gameFloor baseFloor;
 
 	sf::View View(sf::FloatRect(0, 580, 700, 500));
-	window.setView(View);
+	//window.setView(View);
 	sf::View defaultView = window.getDefaultView();
 	while (window.isOpen()) {
 		sf::Event event;
@@ -69,6 +69,10 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			baseFloor.drawFloor(window);
 			baseFloor.drawLevel(window);
 			p1.drawTo(window);
+
+			View.setCenter(sf::Vector2f(p1.getX() + 300, 832));
+			window.setView(View);
+
 			window.display();
 		}
 	}
