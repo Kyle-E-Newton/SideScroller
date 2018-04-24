@@ -4,7 +4,7 @@ void gameFloor::drawFloor(sf::RenderWindow &window) {
 	sf::Texture brick;
 	if (!brick.loadFromFile("resources/Brick1.png")) {}
 
-	//Draws 50 instances of the rectangle -- Will need to call addBrick when moving accross the screen
+	//Draws 50 instances of the rectangle
 	for (int i = 0; i < 60; i++) {
 		sf::RectangleShape Rect = sf::RectangleShape();
 		Rect.setTexture(&brick);
@@ -84,6 +84,7 @@ void gameFloor::drawLevel(sf::RenderWindow &window) {
 	Rect.setPosition(sf::Vector2f(1344, 1018));
 
 	drawPyramind(window, 1504, 1018);
+	drawCoinsLevelOne(window);
 	window.draw(Rect);
 }
 
@@ -125,4 +126,10 @@ void gameFloor::drawPyramind(sf::RenderWindow &window, float startX, float start
 	startY -= 32;
 	Rect.setPosition(startX, startY);
 	window.draw(Rect);
+}
+
+void gameFloor::drawCoinsLevelOne(sf::RenderWindow &window)
+{
+	coin coin1(100, 100);
+	coin1.drawCoin(window);
 }
