@@ -17,7 +17,6 @@
 
 #include "coin.h"
 
-#define WINDOW_HEIGHT 600
-#define WINDOW_WIDTH 800
+#include "networking.h"
 
 using std::string;
