@@ -84,12 +84,11 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		
 		window.draw(background);
 
-		baseFloor.drawFloor(window);
-		baseFloor.drawLevel(window);
-		
-		p1.drawTo(window);
-		window.display();
-	
+			//View.setCenter(sf::Vector2f(p1.getX() + 300, 832));
+			window.setView(defaultView);
+
+			window.display();
+		}
 	}
 }
 void runGame::drawMenu(sf::RenderWindow &window) {
