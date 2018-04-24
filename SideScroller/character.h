@@ -10,6 +10,7 @@ public:
 	void move(sf::Vector2f distance);
 	void setPos(sf::Vector2f newPos);
 	int getY();
+	int getX();
 private:
 	sf::RectangleShape character;
 };
