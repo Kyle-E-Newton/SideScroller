@@ -131,8 +131,10 @@ void gameFloor::drawPyramind(sf::RenderWindow &window, float startX, float start
 
 void gameFloor::drawCoinsLevelOne(sf::RenderWindow &window)
 {
-	coin coin1(100, 100);
-	coin1.drawCoin(window);
+	coin c1(192, 954);
+	c1.drawCoin(window);
+	coin c2(1056, 826);
+	c2.drawCoin(window);
 }
 
 void gameFloor::levelOneText(sf::RenderWindow & window)

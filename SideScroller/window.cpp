@@ -20,7 +20,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	gameFloor baseFloor;
 
 	sf::View View(sf::FloatRect(0, 580, 700, 500));
-	//window.setView(View);
+	window.setView(View);
 	sf::View defaultView = window.getDefaultView();
 	while (window.isOpen()) {
 		sf::Event event;
@@ -88,14 +88,28 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		sf::Sprite background(background);
 		
 		window.draw(background);
-			baseFloor.drawFloor(window);
-			baseFloor.drawLevel(window);
-			p1.drawTo(window);
+		baseFloor.drawFloor(window);
+		baseFloor.drawLevel(window);
+		p1.drawTo(window);
 
-			View.setCenter(sf::Vector2f(p1.getX() + 300, 832));
+		if (p1.getX() > 550 && p1.getX() < 600) {
+			View.setCenter(sf::Vector2f(800, 832));
 			window.setView(View);
+		}
+		if (p1.getX() > 900 && p1.getX() < 950) {
+			View.setCenter(sf::Vector2f(1100, 832));
+			window.setView(View);
+		}
+		if (p1.getX() > 1300 && p1.getX() < 1350) {
+			View.setCenter(sf::Vector2f(1400, 832));
+			window.setView(View);
+		}
+		if (p1.getX() > 1600 && p1.getX() < 1650) {
+			View.setCenter(sf::Vector2f(1400, 832));
+			window.setView(View);
+		}
 
-			window.display();
+		window.display();
 		}
 	}
 void runGame::drawMenu(sf::RenderWindow &window) {
