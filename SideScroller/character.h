@@ -9,7 +9,7 @@
 
 //Character Object
 
-class Character	{
+class Character	: public sf::RectangleShape {
 public:
 	Character(sf::Vector2f size, sf::Color color);
 	void drawTo(sf::RenderWindow &window);
@@ -23,7 +23,9 @@ public:
 	float getSizeX();
 	sf::FloatRect getGlobal();
 	int getScale();
-	sf::RectangleShape isColliding(sf::RectangleShape &floor);
+	bool isColliding(sf::RectangleShape &floor, sf::RectangleShape &collision);
+	float getXLeft();
+	float getXRight();
 private:
 	sf::RectangleShape character;
 	std::string name;

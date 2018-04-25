@@ -15,4 +15,5 @@ public:
 	void Game(sf::RenderWindow &window);
 	void drawCredits(sf::RenderWindow &window);
 	void drawHighScoreScreen(sf::RenderWindow & window);
+private:
 };

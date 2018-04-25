@@ -16,13 +16,20 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	//checks for a character jumping
 	bool isJumping = false;
 	//collision object
+
+	bool MoveRight = false;
+	bool MoveLeft = false;
+	bool MoveUp = false;
+	bool MoveDown = false;
 	
+	float least = 0;
 	
 	//time 
 	sf::Clock clock;
 	sf::Time time;
 	sf::Vector2f velocity(sf::Vector2f(0, 0));
-	sf::RectangleShape collide;
+	bool collide = false;
+	sf::RectangleShape *collision = new sf::RectangleShape;
 	
 	p1.setPos(position);
 	gameFloor baseFloor;
@@ -45,20 +52,129 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 				window.clear();
 				window.setView(defaultView);
 				drawMenu(window);
-				
+
 			}
 			if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Space)
 			{
 				isJumping = false;
 			}
-		
+
+
+		}
+		baseFloor.drawFloor(window);
+		baseFloor.drawLevel(window);
+	
+		while (count < 26 && !collide)
+		{
+			
+			collide = p1.isColliding(baseFloor.getRect(count), *collision);
+			count++;
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+			MoveRight = true;
+			MoveLeft = false;
+			MoveUp = false;
+			MoveDown = false;
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+			MoveRight = false;
+			MoveLeft = true;
+			MoveUp = false;
+			MoveDown = false;
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+			MoveRight = false;
+			MoveLeft = false;
+			MoveUp = true;
+			MoveDown = false;
+		}
+
+		if ((collide == true && (p1.getXRight() <= collision->getGlobalBounds().left)) && MoveRight) {
+			std::cout << "in Right Collision loop" << std::endl;
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			{
+				velocity.y = -g.getdMs();
+			}
+
+			if (p1.getY() + p1.getSizeY() < g.getGh() || velocity.y < 0)
+			{
+				velocity.y += g.getGs();
+
+			}
+			else
+			{
+				position.x = p1.getX() - 10;
+				position.y = g.getGh();
+				p1.setPos(position);
+				velocity.y = 0;
+			}
+			collide = false;
+			//MoveRight = false;
+		}
+		else if (collide == true && (p1.getXLeft() <= (collision->getGlobalBounds().left + 32)) && MoveLeft) {
+			std::cout << "in Left Collision loop" << std::endl;
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			{
+				velocity.y = -g.getdMs();
+			}
+
+			if (p1.getY() + p1.getSizeY() < g.getGh() || velocity.y < 0)
+			{
+				velocity.y += g.getGs();
+
+			}
+			else
+			{
+				position.x = p1.getX() + 10;
+				position.y = g.getGh();
+				p1.setPos(position);
+				velocity.y = 0;
+			}
+			collide = false;
+			//MoveLeft = false;
+		}
+		else if (collide == true && (p1.getGlobalBounds().top <= (collision->getGlobalBounds().left + 32)) && MoveLeft)
+		{
 			
 		}
-		while (count > 26)
-		{
-			collide = p1.isColliding(baseFloor.getRect(count));
+		 else if (!collide) {
+			p1.move(velocity);
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+			{
+				velocity.x = g.getMs();
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+			{
+				velocity.x = -g.getMs();
+			}
+			else
+			{
+				velocity.x = 0;
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			{
+				velocity.y = -g.getdMs();
+			}
+
+			if (p1.getY() + p1.getSizeY() < g.getGh() || velocity.y < 0)
+			{
+				least = velocity.y;
+				velocity.y += g.getGs();
+				if (velocity.y == std::min(velocity.y, least))
+				{
+
+				}
+			}
+			else
+			{
+				position.x = p1.getX();
+				position.y = g.getGh();
+				p1.setPos(position);
+				velocity.y = 0;
+			}
+			collide = false;
 		}
-		p1.move(velocity);
+		/*p1.move(velocity);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
 			velocity.x = g.getMs();
@@ -87,9 +203,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			position.y = g.getGh();
 			p1.setPos(position);
 			velocity.y = 0;
-		}
-
-		
+		}*/
 
 
 		p1.move(velocity);
@@ -100,8 +214,6 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		sf::Sprite background(background);
 		
 		window.draw(background);
-		baseFloor.drawFloor(window);
-		baseFloor.drawLevel(window);
 		p1.drawTo(window);
 
 		if (p1.getX() > 550 && p1.getX() < 600) {
@@ -121,7 +233,11 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			window.setView(View);
 		}
 
+		baseFloor.drawFloor(window);
+		baseFloor.drawLevel(window);
+
 		window.display();
+		collide = false;
 		}
 	}
 void runGame::drawMenu(sf::RenderWindow &window) {
@@ -235,7 +351,8 @@ void runGame::Game(sf::RenderWindow &window) {
 
 	gameFloor baseFloor;
 
-	window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
+	//window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
+	window.create(sf::VideoMode(800, 600), "My window");
 
 	while (menuRunning) {
 		drawMenu(window);

@@ -66,12 +66,25 @@ int Character::getScale()
 	return scale;
 }
 
-sf::RectangleShape Character::isColliding(sf::RectangleShape &floor)
+bool Character::isColliding(sf::RectangleShape &brick, sf::RectangleShape &collision)
 {
-		if(this->getGlobal().intersects(floor.getGlobalBounds()));
-		{
-			std::cout << "C" << std::endl;
-			return floor;
-		}
+	if(this->getGlobal().intersects(brick.getGlobalBounds()))
+	{
+		collision = brick;
+		return true;
+	} 
+	else {
+		return false;
+	}
 
+}
+
+float Character::getXLeft()
+{
+	return this->getGlobalBounds().left;
+}
+
+float Character::getXRight()
+{
+	return this->getPosition().x + this->getGlobalBounds().left + this->getGlobalBounds().width;
 }

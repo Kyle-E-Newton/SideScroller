@@ -5,6 +5,7 @@
 //Due Date: 4/25/2018
 //Github Repository: https://github.com/Kyle-E-Newton/SideScroller
 
+
 void gameFloor::drawFloor(sf::RenderWindow &window) {
 	sf::Texture brick;
 	if (!brick.loadFromFile("resources/Brick1.png")) {}
