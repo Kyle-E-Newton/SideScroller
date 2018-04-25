@@ -16,8 +16,10 @@ public:
 	float getSizeY();
 	float getSizeX();
 	sf::FloatRect getGlobal();
+	int getScale();
 private:
 	sf::RectangleShape character;
 	std::string name;
 	double score;
+	int scale;
 };

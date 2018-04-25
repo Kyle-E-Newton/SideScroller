@@ -26,10 +26,28 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		sf::Event event;
 		float dt = clock.restart().asSeconds();
 		
-		if (p1.getGlobal().left > baseFloor.getPlatBounds().left)
+		if (p1.getGlobal().intersects(baseFloor.getPlatBounds()))
 		{
-			
+			std::cout << "Collision" << std::endl;
+			if (p1.getGlobal().left + p1.getGlobal().width > baseFloor.getPlatBounds().left)
+			{
+				std::cout << "Collision" << std::endl;
+				p1.setPos(sf::Vector2f(baseFloor.getPlatBounds().left - p1.getGlobal().width * p1.getScale(), p1.getY()));
+			}
+			/*if (p1.getGlobal().left + p1.getGlobal().width > baseFloor.getPlatBounds().left + baseFloor.getPlatBounds().width)
+			{
+
+			}
+			if (p1.getGlobal().top > baseFloor.getPlatBounds().top)
+			{
+
+			}
+			if (p1.getGlobal().top + p1.getGlobal().height > baseFloor.getPlatBounds().top + baseFloor.getPlatBounds().height)
+			{
+
+			}*/
 		}
+		
 
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
