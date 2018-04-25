@@ -15,6 +15,7 @@ public:
 	float getX();
 	float getSizeY();
 	float getSizeX();
+	sf::FloatRect getGlobal();
 private:
 	sf::RectangleShape character;
 	std::string name;

@@ -26,6 +26,11 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		sf::Event event;
 		float dt = clock.restart().asSeconds();
 		
+		if (p1.getGlobal().left > baseFloor.getPlatBounds().left)
+		{
+			
+		}
+
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
 				window.close();

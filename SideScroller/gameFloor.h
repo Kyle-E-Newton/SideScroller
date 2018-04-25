@@ -9,4 +9,8 @@ public:
 	void drawPyramind(sf::RenderWindow &window, float startX, float startY);
 	void drawCoinsLevelOne(sf::RenderWindow &window);
 	void levelOneText(sf::RenderWindow &window);
+	//gets the platforms global bounds
+	sf::FloatRect getPlatBounds();
+private:
+	sf::RectangleShape rect;
 };

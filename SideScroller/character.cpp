@@ -34,6 +34,11 @@ double Character::getScore()
 	return score;
 }
 
+void Character::setScore(double numAdd)
+{
+	score += numAdd;
+}
+
 
 float Character::getSizeY()
 {
@@ -43,4 +48,9 @@ float Character::getSizeY()
 float Character::getSizeX()
 {
 	return character.getSize().x;
+}
+
+sf::FloatRect Character::getGlobal()
+{
+	return character.getGlobalBounds();;
 }
