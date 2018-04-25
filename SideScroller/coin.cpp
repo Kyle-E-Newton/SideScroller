@@ -12,7 +12,7 @@ void coin::drawCoin(sf::RenderWindow &window)
 	sf::Texture tCoin;
 	if (!tCoin.loadFromFile("resources/coin.png")) {}
 	c.setTexture(tCoin);
-	c.setPosition(xPos, yPos);
+	c.setPosition(100, 1020);
 	c.setScale(sf::Vector2f(.1, .1));
 	window.draw(c);
 }

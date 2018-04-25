@@ -1,12 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Network.hpp>
-
 #include <iostream>
 #include <string>
-#include <fstream>
-#include <vector>
 
 #include "gameFloor.h"
 
@@ -21,7 +17,5 @@
 #include "coin.h"
 
 #include "networking.h"
-
-#include "scores.h"
 
 using std::string;

@@ -14,7 +14,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	gameFloor baseFloor;
 
 	sf::View View(sf::FloatRect(0, 580, 700, 500));
-	window.setView(View);
+	//window.setView(View);
 	sf::View defaultView = window.getDefaultView();
 	while (window.isOpen()) {
 		sf::Event event;
@@ -68,7 +68,6 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 
 			baseFloor.drawFloor(window);
 			baseFloor.drawLevel(window);
-			baseFloor.levelOneTutorialText(window);
 			p1.drawTo(window);
 
 			View.setCenter(sf::Vector2f(p1.getX() + 300, 832));
@@ -86,7 +85,6 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 	button bQuit(272, 450, 947, 1045);
 	button bCredits(272, 450, 747, 845);
 	button bLevelOne(272, 450, 547, 645);
-	button bHighScore(550, 728, 747, 845);
 
 	sf::Event event;
 	while (menuOpen) {
@@ -114,11 +112,6 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 				menuOpen = false;
 				drawCredits(window);
 			}
-			if (event.type == sf::Event::MouseButtonPressed && bHighScore.isButtonClicked(sf::Mouse::getPosition())) {
-				window.clear();
-				drawHighScoreScreen(window);
-				menuOpen = false;
-			}
 
 			window.setTitle("2D Side Scroller");
 			//window.setVerticalSyncEnabled(true);
@@ -130,12 +123,10 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 			bQuit.insertText(window, "Quit");
 			bCredits.insertText(window, "Credits");
 			bLevelOne.insertText(window, "Level 1");
-			bHighScore.insertText(window, "High Scores");
 
 			bQuit.drawButton(window);
 			bCredits.drawButton(window);
 			bLevelOne.drawButton(window);
-			bHighScore.drawButton(window);
 			window.display();
 		}
 	}
@@ -201,44 +192,5 @@ void runGame::Game(sf::RenderWindow &window) {
 	while(gameRunning){
 		drawGameLevelOne(window);
 		gameRunning = false;
-	}
-}
-
-void runGame::drawHighScoreScreen(sf::RenderWindow &window) {
-	networking net;
-	net.connectToServer();
-	net.goToDir();
-	net.getFileFromServer();
-
-	sf::Texture background;
-
-	button bMain(272, 520, 947, 1045);
-
-	scores HighScores;
-	std::vector<scores> Scores;
-
-	Scores = HighScores.readFromFile();
-	std::cout << Scores[0].getName() << std::endl;
-
-	sf::Event event;
-	while (window.isOpen()) {
-		while (window.pollEvent(event)) {
-			if ((event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) || event.type == sf::Event::Closed) {
-				window.close();
-			}
-			if (event.type == sf::Event::MouseButtonPressed && bMain.isButtonClicked(sf::Mouse::getPosition())) {
-				window.clear();
-				drawMenu(window);
-			}
-			window.setTitle("2D Side Scroller");
-			window.setVerticalSyncEnabled(true);
-			if (!background.loadFromFile("resources/Background.png")) {}
-			sf::Sprite background(background);
-			window.draw(background);
-
-			bMain.insertText(window, "Main Menu");
-			bMain.drawButton(window);
-			window.display();
-		}
 	}
 }
