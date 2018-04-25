@@ -14,7 +14,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	gameFloor baseFloor;
 
 	sf::View View(sf::FloatRect(0, 580, 700, 500));
-	//window.setView(View);
+	window.setView(View);
 	sf::View defaultView = window.getDefaultView();
 	while (window.isOpen()) {
 		sf::Event event;
@@ -68,10 +68,11 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 
 			baseFloor.drawFloor(window);
 			baseFloor.drawLevel(window);
+			baseFloor.levelOneTutorialText(window);
 			p1.drawTo(window);
 
-			//View.setCenter(sf::Vector2f(p1.getX() + 300, 832));
-			window.setView(defaultView);
+			View.setCenter(sf::Vector2f(p1.getX() + 300, 832));
+			window.setView(View);
 
 			window.display();
 		}
@@ -116,6 +117,7 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 			if (event.type == sf::Event::MouseButtonPressed && bHighScore.isButtonClicked(sf::Mouse::getPosition())) {
 				window.clear();
 				drawHighScoreScreen(window);
+				menuOpen = false;
 			}
 
 			window.setTitle("2D Side Scroller");
