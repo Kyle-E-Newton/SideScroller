@@ -17,7 +17,7 @@ public:
 	void drawCoinsLevelOne(sf::RenderWindow &window);
 	void levelOneText(sf::RenderWindow &window);
 	//gets the platforms global bounds
-	sf::FloatRect getPlatBounds();
+	//sf::FloatRect getPlatBounds();
 private:
 	std::vector<sf::RectangleShape> Rect;
 };

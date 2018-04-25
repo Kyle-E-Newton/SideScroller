@@ -5,6 +5,6 @@
 class Collision
 {
 public:
-	gameFloor checkForPlat(Character &p1, gameFloor &floor);
+	//gameFloor checkForPlat(Character &p1, gameFloor &floor);
 
 };

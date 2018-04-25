@@ -6,6 +6,8 @@
 //Github Repository: https://github.com/Kyle-E-Newton/SideScroller
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
+
 #include <iostream>
 #include <string>
 #include <ctime>
