@@ -130,6 +130,21 @@ void gameFloor::drawPyramind(sf::RenderWindow &window, float startX, float start
 
 void gameFloor::drawCoinsLevelOne(sf::RenderWindow &window)
 {
-	coin coin1(100, 100);
+	coin coin1(192, 954);
 	coin1.drawCoin(window);
+	coin c2(1056, 826);
+	c2.drawCoin(window);
+}
+
+void gameFloor::levelOneTutorialText(sf::RenderWindow & window)
+{
+	sf::Font comicSans;
+	if (!comicSans.loadFromFile("resources/comicSans.ttf")) {}
+	sf::Text m1;	m1.setString("Use 'A' to move Left and 'D' to move right");
+	sf::Text m2;	m2.setString("Jump on enemies to defeat them");
+	sf::Text m3;	m3.setString("Collect Coins to increase Score");
+	sf::Text m4;	m4.setString("Don't hit the Spikes");
+	sf::Text m5;	m5.setString("Stand Here to end the level");
+
+
 }

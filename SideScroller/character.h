@@ -9,8 +9,12 @@ public:
 	void drawTo(sf::RenderWindow &window);
 	void move(sf::Vector2f distance);
 	void setPos(sf::Vector2f newPos);
+	void setScore(double numAdd);
 	int getY();
 	int getX();
+	double getScore();
+
 private:
 	sf::RectangleShape character;
+	double score;
 };
