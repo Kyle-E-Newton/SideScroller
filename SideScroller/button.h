@@ -2,6 +2,13 @@
 
 #include "sidescroller.h"
 
+//Names: Kyle Newton, Dustin Peters
+//Project: Sidescroller
+//Due Date: 4/25/2018
+//Github Repository: https://github.com/Kyle-E-Newton/SideScroller
+
+//Creates a Clickable Button
+
 class button : public sf::RectangleShape {
 public:
 	button(float leftX, float rightX, float topY, float bottomY);

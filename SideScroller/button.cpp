@@ -1,5 +1,10 @@
 #include "button.h"
 
+//Names: Kyle Newton, Dustin Peters
+//Project: Sidescroller
+//Due Date: 4/25/2018
+//Github Repository: https://github.com/Kyle-E-Newton/SideScroller
+
 button::button(float leftX, float rightX, float topY, float bottomY) {
 	setCoordinates(leftX, rightX, topY, bottomY);
 }

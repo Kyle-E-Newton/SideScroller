@@ -1,12 +1,13 @@
+#pragma once
+
 #include "sidescroller.h"
 
-//Open Window
+//Names: Kyle Newton, Dustin Peters
+//Project: Sidescroller
+//Due Date: 4/25/2018
+//Github Repository: https://github.com/Kyle-E-Newton/SideScroller
 
-//Menu
-//Credits
-//Level Selector
-//Display High Score
-
+//Game Wrapper
 class runGame {
 public:
 	void drawGameLevelOne(sf::RenderWindow &window);

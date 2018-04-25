@@ -1,8 +1,15 @@
 #pragma once
+
 #include "sidescroller.h"
 
-class Gravity
-{
+//Names: Kyle Newton, Dustin Peters
+//Project: Sidescroller
+//Due Date: 4/25/2018
+//Github Repository: https://github.com/Kyle-E-Newton/SideScroller
+
+//Gravity/Movement Speed/Movement
+
+class Gravity {
 public:
 	Gravity();
 	//get ground height

@@ -1,5 +1,10 @@
 #pragma once
 
+//Names: Kyle Newton, Dustin Peters
+//Project: Sidescroller
+//Due Date: 4/25/2018
+//Github Repository: https://github.com/Kyle-E-Newton/SideScroller
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <string>
