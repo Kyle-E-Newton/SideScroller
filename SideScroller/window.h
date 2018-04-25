@@ -14,4 +14,5 @@ public:
 	void drawMenu(sf::RenderWindow &window);
 	void Game(sf::RenderWindow &window);
 	void drawCredits(sf::RenderWindow &window);
+	void drawHighScoreScreen(sf::RenderWindow & window);
 };
