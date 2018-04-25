@@ -11,7 +11,7 @@
 
 class Character	: public sf::RectangleShape {
 public:
-	Character(sf::Vector2f size, sf::Color color);
+	Character();
 	void drawTo(sf::RenderWindow &window);
 	void move(sf::Vector2f distance);
 	void setPos(sf::Vector2f newPos);
@@ -31,4 +31,15 @@ private:
 	std::string name;
 	double score;
 	int scale;
+};
+
+class Mob : public Character
+{
+public:
+	Mob();
+	void drawTo(sf::RenderWindow &window);
+	void aiMove(bool *left, bool *right);
+private:
+	sf::RectangleShape mob;
+	
 };

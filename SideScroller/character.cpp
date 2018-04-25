@@ -5,10 +5,10 @@
 //Due Date: 4/25/2018
 //Github Repository: https://github.com/Kyle-E-Newton/SideScroller
 
-Character::Character(sf::Vector2f size, sf::Color color)
+Character::Character()
 {
-	character.setSize(size);
-	character.setFillColor(color);
+	character.setSize(sf::Vector2f{ 28, 28 });
+	character.setFillColor(sf::Color::Green);
 	scale = 1;
 }
 
@@ -89,3 +89,5 @@ float Character::getXRight()
 {
 	return this->getPosition().x + this->getGlobalBounds().left + this->getGlobalBounds().width;
 }
+
+

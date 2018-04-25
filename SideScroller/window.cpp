@@ -10,7 +10,8 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	sf::Texture background;
 	sf::Vector2f position = sf::Vector2f(50, 1022);
 	//Makes the moveable character
-	Character p1({ 28, 28 }, sf::Color::Green);
+	Character p1;
+	Mob m1;
 	//sets for gravity
 	Gravity g;
 	//checks for a character jumping
@@ -21,7 +22,8 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	bool MoveLeft = false;
 	bool MoveUp = false;
 	bool MoveDown = false;
-	
+	bool right = true;
+	bool left = false;
 	float least = 0;
 	
 	//time 
@@ -31,6 +33,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	bool collide = false;
 	sf::RectangleShape *collision = new sf::RectangleShape;
 	
+	//m1.setPos();
 	p1.setPos(position);
 	gameFloor baseFloor;
 
@@ -175,7 +178,38 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			}
 			collide = false;
 		}
-		
+		/*p1.move(velocity);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		{
+			velocity.x = g.getMs();
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{ 
+			velocity.x = -g.getMs();
+		}
+		else
+		{
+			velocity.x = 0;
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+				velocity.y = -g.getdMs();
+		}
+
+		if (p1.getY() + p1.getSizeY() < g.getGh() || velocity.y < 0)
+		{
+			velocity.y += g.getGs();
+			
+		}
+		else
+		{
+			position.x = p1.getX();
+			position.y = g.getGh();
+			p1.setPos(position);
+			velocity.y = 0;
+		}*/
+
+		 m1.aiMove(&left, &right);
 		p1.move(velocity);
 		window.setTitle("2D Side Scroller");
 		window.setVerticalSyncEnabled(true);
@@ -185,6 +219,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		
 		window.draw(background);
 		p1.drawTo(window);
+		m1.drawTo(window);
 
 		if (p1.getX() > 550 && p1.getX() < 600) {
 			View.setCenter(sf::Vector2f(800, 832));
@@ -325,7 +360,7 @@ void runGame::drawCredits(sf::RenderWindow &window) {
 void runGame::Game(sf::RenderWindow &window) {
 	sf::Texture background;
 	//Makes the moveable character
-	Character p1({ 28, 28 }, sf::Color::Green);
+	Character p1;
 	//sets for gravity
 	Gravity g;
 	//checks for a character jumping
