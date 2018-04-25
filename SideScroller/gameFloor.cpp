@@ -85,6 +85,7 @@ void gameFloor::drawLevel(sf::RenderWindow &window) {
 
 	drawPyramind(window, 1504, 1018);
 	drawCoinsLevelOne(window);
+	levelOneText(window);
 	window.draw(Rect);
 }
 
@@ -132,4 +133,27 @@ void gameFloor::drawCoinsLevelOne(sf::RenderWindow &window)
 {
 	coin coin1(100, 100);
 	coin1.drawCoin(window);
+}
+
+void gameFloor::levelOneText(sf::RenderWindow & window)
+{
+	sf::Font comicSans;
+	if (!comicSans.loadFromFile("resources/fonts/comicSans.ttf")) {}
+	sf::Text m1;  m1.setString("Use 'A' to move Left and 'D' to move right");  m1.setCharacterSize(20);
+	sf::Text m2;  m2.setString("Jump on enemies to defeat them");        m2.setCharacterSize(20);
+	sf::Text m3;  m3.setString("Collect Coins to increase Score");      m3.setCharacterSize(20);
+	sf::Text m4;  m4.setString("Don't hit the Spikes");            m4.setCharacterSize(20);
+	sf::Text m5;  m5.setString("Stand Here to end the level");        m5.setCharacterSize(20);
+
+	m1.setFont(comicSans);  m1.setScale(.5, .5);  m1.setPosition(sf::Vector2f(10, 900));
+	m2.setFont(comicSans);  m2.setScale(.5, .5);  m2.setPosition(sf::Vector2f(400, 900));
+	m3.setFont(comicSans);  m3.setScale(.5, .5);  m3.setPosition(sf::Vector2f(160, 800));
+	m4.setFont(comicSans);  m4.setScale(.5, .5);  m4.setPosition(sf::Vector2f(580, 900));
+	m5.setFont(comicSans);  m5.setScale(.5, .5);  m5.setPosition(sf::Vector2f(660, 900));
+
+	window.draw(m1);
+	window.draw(m2);
+	window.draw(m3);
+	window.draw(m4);
+	window.draw(m5);
 }
