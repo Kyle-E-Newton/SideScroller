@@ -29,3 +29,8 @@ float Gravity::getmaxS()
 {
 	return 4.0f;
 }
+
+void Gravity::setMoveSpeed(float newMs)
+{
+	moveSpeed = newMs;
+}

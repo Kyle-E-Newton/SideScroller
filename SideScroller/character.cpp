@@ -21,10 +21,20 @@ void Character::setPos(sf::Vector2f newPos)
 	character.setPosition(newPos);
 }
 
-int Character::getY()
+float Character::getY()
 {
 	return character.getPosition().y;
 }
-int Character::getX() {
+float Character::getX() {
 	return character.getPosition().x;
+}
+
+float Character::getSizeY()
+{
+	return character.getSize().y;
+}
+
+float Character::getSizeX()
+{
+	return character.getSize().x;
 }

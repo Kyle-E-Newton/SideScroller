@@ -15,11 +15,13 @@ public:
 	float getdMs();
 	//get max speed
 	float getmaxS();
+	//set moveSpeed
+	void setMoveSpeed(float newMs);
 protected:
 	//gravity const variables
 	const int groundheight = 1022;
-	const float gravitySpeed = 0.3f;
-	const float moveSpeed = 7.0f;
-	const float dMoveSpeed = 0.0001f;
-	const float maxSpeed = 10.0f;
+	const float gravitySpeed = 3.0f;
+	float moveSpeed = 3.0f;
+	float dMoveSpeed = 16.9f;
+    float maxSpeed = 6.0f;
 };
