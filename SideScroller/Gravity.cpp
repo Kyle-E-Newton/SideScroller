@@ -39,3 +39,9 @@ void Gravity::setMoveSpeed(float newMs)
 {
 	moveSpeed = newMs;
 }
+
+void Gravity::setGroundHeight(int height)
+{
+	this->groundheight = height;
+}
+

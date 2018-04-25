@@ -41,8 +41,6 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		sf::Event event;
 		float dt = clock.restart().asSeconds();
 		int count = 0;
-		
-		
 
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
@@ -90,7 +88,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		}
 
 		if ((collide == true && (p1.getXRight() <= collision->getGlobalBounds().left)) && MoveRight) {
-			std::cout << "in Right Collision loop" << std::endl;
+			//std::cout << "in Right Collision loop" << std::endl;
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			{
 				velocity.y = -g.getdMs();
@@ -112,7 +110,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			//MoveRight = false;
 		}
 		else if (collide == true && (p1.getXLeft() <= (collision->getGlobalBounds().left + 32)) && MoveLeft) {
-			std::cout << "in Left Collision loop" << std::endl;
+			//std::cout << "in Left Collision loop" << std::endl;
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			{
 				velocity.y = -g.getdMs();
@@ -133,9 +131,12 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			collide = false;
 			//MoveLeft = false;
 		}
-		else if (collide == true && (p1.getGlobalBounds().top <= (collision->getGlobalBounds().left + 32)) && MoveLeft)
+		else if (collide == true && (p1.getGlobalBounds().top <= (collision->getGlobalBounds().top + collision->getGlobalBounds().height)) && MoveUp)
 		{
-			
+			//std::cout << "Up Collision" << std::endl;
+		}
+		else if (collide == true && (p1.getGlobalBounds().top + p1.getGlobalBounds().height >= collision->getGlobalBounds().top)) {
+			//std::cout << "Down Collision" << std::endl;
 		}
 		 else if (!collide) {
 			p1.move(velocity);
@@ -174,38 +175,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			}
 			collide = false;
 		}
-		/*p1.move(velocity);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		{
-			velocity.x = g.getMs();
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		{ 
-			velocity.x = -g.getMs();
-		}
-		else
-		{
-			velocity.x = 0;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-		{
-				velocity.y = -g.getdMs();
-		}
-
-		if (p1.getY() + p1.getSizeY() < g.getGh() || velocity.y < 0)
-		{
-			velocity.y += g.getGs();
-			
-		}
-		else
-		{
-			position.x = p1.getX();
-			position.y = g.getGh();
-			p1.setPos(position);
-			velocity.y = 0;
-		}*/
-
-
+		
 		p1.move(velocity);
 		window.setTitle("2D Side Scroller");
 		window.setVerticalSyncEnabled(true);
@@ -232,6 +202,11 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			View.setCenter(sf::Vector2f(1400, 832));
 			window.setView(View);
 		}
+		if (p1.getX() > 1750) {
+			window.clear();
+			window.setView(defaultView);
+			drawMenu(window);
+		}
 
 		baseFloor.drawFloor(window);
 		baseFloor.drawLevel(window);
@@ -244,11 +219,21 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 
 	sf::Texture background;
 
+	sf::Text Title;
+	sf::Font comicSans;
+	if (!comicSans.loadFromFile("resources/fonts/comicSans.ttf")) {}
+
+	Title.setCharacterSize(100);
+	Title.setString("The Sidescroller");
+	Title.setFont(comicSans);
+	Title.setColor(sf::Color::Black);
+	Title.setPosition(sf::Vector2f(200, 300));
+
 	bool menuOpen = true;
 	button bQuit(272, 450, 947, 1045);
 	button bCredits(272, 450, 747, 845);
 	button bLevelOne(272, 450, 547, 645);
-	button bHighScore(550, 728, 747, 845);
+	//button bHighScore(550, 728, 747, 845);
 
 	sf::Event event;
 	while (menuOpen) {
@@ -276,10 +261,10 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 				menuOpen = false;
 				drawCredits(window);
 			}
-			if (event.type == sf::Event::MouseButtonPressed && bHighScore.isButtonClicked(sf::Mouse::getPosition())) {
+			/*if (event.type == sf::Event::MouseButtonPressed && bHighScore.isButtonClicked(sf::Mouse::getPosition())) {
 				window.clear();
 				drawHighScoreScreen(window);
-			}
+			}*/
 
 			window.setTitle("2D Side Scroller");
 			//window.setVerticalSyncEnabled(true);
@@ -291,12 +276,14 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 			bQuit.insertText(window, "Quit");
 			bCredits.insertText(window, "Credits");
 			bLevelOne.insertText(window, "Level 1");
-			bHighScore.insertText(window, "High Scores");
+			//bHighScore.insertText(window, "High Scores");
 
 			bQuit.drawButton(window);
 			bCredits.drawButton(window);
 			bLevelOne.drawButton(window);
-			bHighScore.drawButton(window);
+			//bHighScore.drawButton(window);
+
+			window.draw(Title);
 			window.display();
 		}
 	}
@@ -351,8 +338,8 @@ void runGame::Game(sf::RenderWindow &window) {
 
 	gameFloor baseFloor;
 
-	//window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
-	window.create(sf::VideoMode(800, 600), "My window");
+	window.create(sf::VideoMode::getDesktopMode(), "Borderless FullScreen", sf::Style::None);
+	//window.create(sf::VideoMode(800, 600), "My window");
 
 	while (menuRunning) {
 		drawMenu(window);

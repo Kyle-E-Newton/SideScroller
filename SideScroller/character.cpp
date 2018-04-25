@@ -68,7 +68,8 @@ int Character::getScale()
 
 bool Character::isColliding(sf::RectangleShape &brick, sf::RectangleShape &collision)
 {
-	if(this->getGlobal().intersects(brick.getGlobalBounds()))
+	Gravity g;
+	if (this->getGlobal().intersects(brick.getGlobalBounds()))
 	{
 		collision = brick;
 		return true;

@@ -34,58 +34,32 @@ void gameFloor::drawLevel(sf::RenderWindow &window) {
 
 
 	//Section 1 (0 - 15)
-	Rect[0].setPosition(sf::Vector2f(160, 986));
-	window.draw(Rect[0]);
-	Rect[1].setPosition(sf::Vector2f(192, 986));
-	window.draw(Rect[1]);
-	Rect[2].setPosition(sf::Vector2f(224, 986));
-	window.draw(Rect[2]);
-	Rect[3].setPosition(sf::Vector2f(352, 1018));
-	window.draw(Rect[3]);
-	Rect[4].setPosition(sf::Vector2f(512, 1018));
-	window.draw(Rect[4]);
-	Rect[5].setPosition(sf::Vector2f(640, 986));
-	window.draw(Rect[5]);
-	Rect[6].setPosition(sf::Vector2f(672, 986));
-	window.draw(Rect[6]);
-	Rect[7].setPosition(sf::Vector2f(704, 986));
-	window.draw(Rect[7]);
-	Rect[8].setPosition(sf::Vector2f(736, 922));
-	window.draw(Rect[8]);
-	Rect[9].setPosition(sf::Vector2f(768, 922));
-	window.draw(Rect[9]);
-	Rect[10].setPosition(sf::Vector2f(800, 922));
-	window.draw(Rect[10]);
-	Rect[11].setPosition(sf::Vector2f(832, 986));
-	window.draw(Rect[11]);
-	Rect[12].setPosition(sf::Vector2f(864, 986));
-	window.draw(Rect[12]);
-	Rect[13].setPosition(sf::Vector2f(896, 986));
-	window.draw(Rect[13]);
-	Rect[14].setPosition(sf::Vector2f(928, 922));
-	window.draw(Rect[14]);
-	Rect[15].setPosition(sf::Vector2f(960, 922));
-	window.draw(Rect[15]);
-	Rect[16].setPosition(sf::Vector2f(992, 922));
-	window.draw(Rect[16]);
-	Rect[17].setPosition(sf::Vector2f(1024, 858));
-	window.draw(Rect[17]);
-	Rect[18].setPosition(sf::Vector2f(1056, 858));
-	window.draw(Rect[18]);
-	Rect[19].setPosition(sf::Vector2f(1088, 858));
-	window.draw(Rect[19]);
-	Rect[20].setPosition(sf::Vector2f(1120, 922));
-	window.draw(Rect[20]);
-	Rect[21].setPosition(sf::Vector2f(1152, 922));
-	window.draw(Rect[21]);
-	Rect[22].setPosition(sf::Vector2f(1184, 922));
-	window.draw(Rect[22]);
-	Rect[23].setPosition(sf::Vector2f(1216, 986));
-	window.draw(Rect[23]);
-	Rect[24].setPosition(sf::Vector2f(1248, 986));
-	window.draw(Rect[24]);
-	Rect[25].setPosition(sf::Vector2f(1280, 986));
-	window.draw(Rect[25]);
+	Rect[0].setPosition(sf::Vector2f(160, 986));	window.draw(Rect[0]);
+	Rect[1].setPosition(sf::Vector2f(192, 986));	window.draw(Rect[1]);
+	Rect[2].setPosition(sf::Vector2f(224, 986));	window.draw(Rect[2]);
+	Rect[3].setPosition(sf::Vector2f(352, 1018));	window.draw(Rect[3]);
+	Rect[4].setPosition(sf::Vector2f(512, 1018));	window.draw(Rect[4]);
+	Rect[5].setPosition(sf::Vector2f(640, 986));	window.draw(Rect[5]);
+	Rect[6].setPosition(sf::Vector2f(672, 986));	window.draw(Rect[6]);
+	Rect[7].setPosition(sf::Vector2f(704, 986));	window.draw(Rect[7]);
+	Rect[8].setPosition(sf::Vector2f(736, 922));	window.draw(Rect[8]);
+	Rect[9].setPosition(sf::Vector2f(768, 922));	window.draw(Rect[9]);
+	Rect[10].setPosition(sf::Vector2f(800, 922));	window.draw(Rect[10]);
+	Rect[11].setPosition(sf::Vector2f(832, 986));	window.draw(Rect[11]);
+	Rect[12].setPosition(sf::Vector2f(864, 986));	window.draw(Rect[12]);
+	Rect[13].setPosition(sf::Vector2f(896, 986));	window.draw(Rect[13]);
+	Rect[14].setPosition(sf::Vector2f(928, 922));	window.draw(Rect[14]);
+	Rect[15].setPosition(sf::Vector2f(960, 922));	window.draw(Rect[15]);
+	Rect[16].setPosition(sf::Vector2f(992, 922));	window.draw(Rect[16]);
+	Rect[17].setPosition(sf::Vector2f(1024, 858));	window.draw(Rect[17]);
+	Rect[18].setPosition(sf::Vector2f(1056, 858));	window.draw(Rect[18]);
+	Rect[19].setPosition(sf::Vector2f(1088, 858));	window.draw(Rect[19]);
+	Rect[20].setPosition(sf::Vector2f(1120, 922));	window.draw(Rect[20]);
+	Rect[21].setPosition(sf::Vector2f(1152, 922));	window.draw(Rect[21]);
+	Rect[22].setPosition(sf::Vector2f(1184, 922));	window.draw(Rect[22]);
+	Rect[23].setPosition(sf::Vector2f(1216, 986));	window.draw(Rect[23]);
+	Rect[24].setPosition(sf::Vector2f(1248, 986));	window.draw(Rect[24]);
+	Rect[25].setPosition(sf::Vector2f(1280, 986));	window.draw(Rect[25]);
 
 	sf::Texture spikes;
 	if (!spikes.loadFromFile("resources/spikes.png")) {}
@@ -165,9 +139,9 @@ void gameFloor::levelOneText(sf::RenderWindow & window)
 
 	window.draw(m1);
 	window.draw(m2);
-	window.draw(m3);
-	window.draw(m4);
-	window.draw(m5);
+	//window.draw(m3);
+	//window.draw(m4);
+	//window.draw(m5);
 }
 
 std::vector<sf::RectangleShape> gameFloor::getGamePlat()
