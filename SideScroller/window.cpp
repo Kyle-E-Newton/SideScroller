@@ -37,6 +37,14 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	sf::View View(sf::FloatRect(0, 580, 700, 500));
 	window.setView(View);
 	sf::View defaultView = window.getDefaultView();
+
+	baseFloor.drawFloor(window);
+	baseFloor.drawLevel(window);
+	coin c1(192, 954);
+	c1.drawCoin(window);
+	coin c2(1056, 826);
+	c2.drawCoin(window);
+
 	while (window.isOpen()) {
 		sf::Event event;
 		float dt = clock.restart().asSeconds();
@@ -59,8 +67,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 
 
 		}
-		baseFloor.drawFloor(window);
-		baseFloor.drawLevel(window);
+		
 	
 		while (count < 26 && !collide)
 		{
@@ -135,7 +142,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		{
 			//std::cout << "Up Collision" << std::endl;
 		}
-		else if (collide == true && (p1.getGlobalBounds().top + p1.getGlobalBounds().height >= collision->getGlobalBounds().top)) {
+		else if (collide == true && (collision->getGlobalBounds().top <= (p1.getGlobalBounds().top + p1.getGlobalBounds().height))) {
 			//std::cout << "Down Collision" << std::endl;
 		}
 		 else if (!collide) {
@@ -175,7 +182,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			}
 			collide = false;
 		}
-		
+		 
 		p1.move(velocity);
 		window.setTitle("2D Side Scroller");
 		window.setVerticalSyncEnabled(true);
@@ -207,11 +214,19 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			window.setView(defaultView);
 			drawMenu(window);
 		}
+		if (p1.getGlobalBounds().intersects(c1.getGlobalBounds())) {
+			c1.setPosition(sf::Vector2f(5000, 5000));
+			p1.setScore(2000);
+			std::cout << p1.getScore() << std::endl;
+		}
 
 		baseFloor.drawFloor(window);
 		baseFloor.drawLevel(window);
+		c1.drawCoin(window);
+		c2.drawCoin(window);
 
 		window.display();
+		window.clear();
 		collide = false;
 		}
 	}

@@ -68,7 +68,7 @@ void gameFloor::drawLevel(sf::RenderWindow &window) {
 	spike.setPosition(sf::Vector2f(1344, 1018));
 
 	drawPyramind(window, 1504, 1018);
-	drawCoinsLevelOne(window);
+	//drawCoinsLevelOne(window);
 	levelOneText(window);
 	window.draw(spike);
 }
@@ -119,29 +119,33 @@ void gameFloor::drawCoinsLevelOne(sf::RenderWindow &window)
 	c1.drawCoin(window);
 	coin c2(1056, 826);
 	c2.drawCoin(window);
+	
 }
 
 void gameFloor::levelOneText(sf::RenderWindow & window)
 {
 	sf::Font comicSans;
 	if (!comicSans.loadFromFile("resources/fonts/comicSans.ttf")) {}
-	sf::Text m1;  m1.setString("Use 'A' to move Left and 'D' to move right");  m1.setCharacterSize(20);
-	sf::Text m2;  m2.setString("Jump on enemies to defeat them");        m2.setCharacterSize(20);
-	sf::Text m3;  m3.setString("Collect Coins to increase Score");      m3.setCharacterSize(20);
-	sf::Text m4;  m4.setString("Don't hit the Spikes");            m4.setCharacterSize(20);
-	sf::Text m5;  m5.setString("Stand Here to end the level");        m5.setCharacterSize(20);
+	sf::Text m1;  m1.setString("Use 'A' to move Left and 'D' to move right");				m1.setCharacterSize(20);
+	sf::Text m2;  m2.setString("Jump on enemies to defeat them (WIP)");							m2.setCharacterSize(20);
+	sf::Text m3;  m3.setString("Collect Coins to increase Score (WIP)");					m3.setCharacterSize(20);
+	sf::Text m4;  m4.setString("Don't hit the Spikes (WIP)");								m4.setCharacterSize(20);
+	sf::Text m5;  m5.setString("Go to the Right edge of the screen to finish the Level");	m5.setCharacterSize(20);
+	sf::Text m6; m6.setString("Platform Collision is Not Currently working");				m6.setCharacterSize(20);
 
 	m1.setFont(comicSans);  m1.setScale(.5, .5);  m1.setPosition(sf::Vector2f(10, 900));
 	m2.setFont(comicSans);  m2.setScale(.5, .5);  m2.setPosition(sf::Vector2f(400, 900));
 	m3.setFont(comicSans);  m3.setScale(.5, .5);  m3.setPosition(sf::Vector2f(160, 800));
-	m4.setFont(comicSans);  m4.setScale(.5, .5);  m4.setPosition(sf::Vector2f(580, 900));
-	m5.setFont(comicSans);  m5.setScale(.5, .5);  m5.setPosition(sf::Vector2f(660, 900));
+	m4.setFont(comicSans);  m4.setScale(.5, .5);  m4.setPosition(sf::Vector2f(1100, 900));
+	m5.setFont(comicSans);  m5.setScale(.5, .5);  m5.setPosition(sf::Vector2f(1250, 900));
+	m6.setFont(comicSans);	m6.setScale(.5, .5);  m6.setPosition(sf::Vector2f(10, 850));
 
 	window.draw(m1);
 	window.draw(m2);
-	//window.draw(m3);
-	//window.draw(m4);
-	//window.draw(m5);
+	window.draw(m3);
+	window.draw(m4);
+	window.draw(m5);
+	window.draw(m6);
 }
 
 std::vector<sf::RectangleShape> gameFloor::getGamePlat()

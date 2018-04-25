@@ -5,6 +5,10 @@
 //Due Date: 4/25/2018
 //Github Repository: https://github.com/Kyle-E-Newton/SideScroller
 
+coin::coin()
+{
+}
+
 coin::coin(int xPos, int yPos)
 {
 	this->xPos = xPos;

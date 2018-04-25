@@ -11,6 +11,7 @@
 
 class coin : public sf::Sprite {
 public:
+	coin();
 	coin(int xPos, int yPos);
 	void drawCoin(sf::RenderWindow &window);
 private:
