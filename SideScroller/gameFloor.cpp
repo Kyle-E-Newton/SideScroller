@@ -1,4 +1,4 @@
-#include "gameFloor.h"
+#include "sidescroller.h"
 
 //Names: Kyle Newton, Dustin Peters
 //Project: Sidescroller
@@ -169,9 +169,21 @@ void gameFloor::levelOneText(sf::RenderWindow & window)
 	window.draw(m5);
 }
 
-sf::FloatRect gameFloor::getPlatBounds()
+std::vector<sf::RectangleShape> gameFloor::getGamePlat()
 {
-	return rect.getGlobalBounds();
+	return Rect;
 }
+
+sf::FloatRect gameFloor::getPlatBounds(int index)
+{
+	return Rect[index].getGlobalBounds();
+}
+
+sf::RectangleShape gameFloor::getRect(int index)
+{
+	return Rect[index];
+}
+
+
 
 

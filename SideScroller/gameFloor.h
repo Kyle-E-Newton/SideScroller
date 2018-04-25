@@ -16,8 +16,10 @@ public:
 	void drawPyramind(sf::RenderWindow &window, float startX, float startY);
 	void drawCoinsLevelOne(sf::RenderWindow &window);
 	void levelOneText(sf::RenderWindow &window);
+	std::vector<sf::RectangleShape> getGamePlat();
 	//gets the platforms global bounds
-	sf::FloatRect getPlatBounds();
+	sf::FloatRect getPlatBounds(int index);
+	sf::RectangleShape getRect(int index);
 private:
 	std::vector<sf::RectangleShape> Rect;
 };

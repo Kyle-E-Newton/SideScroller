@@ -15,11 +15,14 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	Gravity g;
 	//checks for a character jumping
 	bool isJumping = false;
+	//collision object
+	
 	
 	//time 
 	sf::Clock clock;
 	sf::Time time;
 	sf::Vector2f velocity(sf::Vector2f(0, 0));
+	sf::RectangleShape collide;
 	
 	p1.setPos(position);
 	gameFloor baseFloor;
@@ -30,7 +33,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 	while (window.isOpen()) {
 		sf::Event event;
 		float dt = clock.restart().asSeconds();
-		
+		int count = 0;
 		
 		
 
@@ -51,7 +54,10 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		
 			
 		}
-		
+		while (count > 26)
+		{
+			collide = p1.isColliding(baseFloor.getRect(count));
+		}
 		p1.move(velocity);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
@@ -82,6 +88,9 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			p1.setPos(position);
 			velocity.y = 0;
 		}
+
+		
+
 
 		p1.move(velocity);
 		window.setTitle("2D Side Scroller");

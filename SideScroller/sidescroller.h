@@ -12,11 +12,11 @@
 #include <fstream>
 #include <vector>
 
+#include "character.h"
+
 #include "gameFloor.h"
 
 #include "window.h"
-
-#include "character.h"
 
 #include "Gravity.h"
 
@@ -25,5 +25,7 @@
 #include "coin.h"
 
 #include "networking.h"
+
+
 
 using std::string;

@@ -23,6 +23,7 @@ public:
 	float getSizeX();
 	sf::FloatRect getGlobal();
 	int getScale();
+	sf::RectangleShape isColliding(sf::RectangleShape &floor);
 private:
 	sf::RectangleShape character;
 	std::string name;

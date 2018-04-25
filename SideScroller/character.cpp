@@ -65,3 +65,13 @@ int Character::getScale()
 {
 	return scale;
 }
+
+sf::RectangleShape Character::isColliding(sf::RectangleShape &floor)
+{
+		if(this->getGlobal().intersects(floor.getGlobalBounds()));
+		{
+			std::cout << "C" << std::endl;
+			return floor;
+		}
+
+}
