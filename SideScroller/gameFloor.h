@@ -19,5 +19,5 @@ public:
 	//gets the platforms global bounds
 	sf::FloatRect getPlatBounds();
 private:
-	sf::RectangleShape rect;
+	std::vector<sf::RectangleShape> Rect;
 };

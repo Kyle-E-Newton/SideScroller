@@ -23,7 +23,6 @@ void gameFloor::drawLevel(sf::RenderWindow &window) {
 	//Base Code
 	sf::Texture brick;
 	if (!brick.loadFromFile("resources/Brick1.png")) {}
-	std::vector<sf::RectangleShape> Rect;
 	for (int i = 0; i < 26; i++) {
 		sf::RectangleShape shape = sf::RectangleShape();
 		shape.setTexture(&brick);
