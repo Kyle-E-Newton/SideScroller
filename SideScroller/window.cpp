@@ -93,7 +93,6 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			window.display();
 		}
 	}
-}
 void runGame::drawMenu(sf::RenderWindow &window) {
 
 	sf::Texture background;

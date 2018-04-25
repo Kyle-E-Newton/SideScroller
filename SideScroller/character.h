@@ -17,4 +17,6 @@ public:
 	float getSizeX();
 private:
 	sf::RectangleShape character;
+	std::string name;
+	double score;
 };
