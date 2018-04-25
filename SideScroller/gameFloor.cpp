@@ -18,75 +18,80 @@ void gameFloor::drawLevel(sf::RenderWindow &window) {
 	//Base Code
 	sf::Texture brick;
 	if (!brick.loadFromFile("resources/Brick1.png")) {}
-	sf::RectangleShape Rect = sf::RectangleShape();
-	Rect.setTexture(&brick);
-	Rect.setSize(sf::Vector2f(32, 32));
+	std::vector<sf::RectangleShape> Rect;
+	for (int i = 0; i < 26; i++) {
+		sf::RectangleShape shape = sf::RectangleShape();
+		shape.setTexture(&brick);
+		shape.setSize(sf::Vector2f(32, 32));
+		Rect.push_back(shape);
+	}
+	
+
 
 	//Section 1 (0 - 15)
-	Rect.setPosition(sf::Vector2f(160, 986));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(192, 986));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(224, 986));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(352, 1018));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(512, 1018));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(640, 986));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(672, 986));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(704, 986));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(736, 922));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(768, 922));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(800, 922));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(832, 986));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(864, 986));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(896, 986));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(928, 922));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(960, 922));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(992, 922));
-	window.draw(Rect);	
-	Rect.setPosition(sf::Vector2f(1024, 858));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(1056, 858));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(1088, 858));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(1120, 922));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(1152, 922));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(1184, 922));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(1216, 986));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(1248, 986));
-	window.draw(Rect);
-	Rect.setPosition(sf::Vector2f(1280, 986));
-	window.draw(Rect);
-	
-	Rect.setPosition(sf::Vector2f());
+	Rect[0].setPosition(sf::Vector2f(160, 986));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(192, 986));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(224, 986));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(352, 1018));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(512, 1018));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(640, 986));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(672, 986));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(704, 986));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(736, 922));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(768, 922));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(800, 922));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(832, 986));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(864, 986));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(896, 986));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(928, 922));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(960, 922));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(992, 922));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(1024, 858));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(1056, 858));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(1088, 858));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(1120, 922));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(1152, 922));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(1184, 922));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(1216, 986));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(1248, 986));
+	window.draw(Rect[0]);
+	Rect[0].setPosition(sf::Vector2f(1280, 986));
+	window.draw(Rect[0]);
 
 	sf::Texture spikes;
 	if (!spikes.loadFromFile("resources/spikes.png")) {}
-	Rect.setTexture(&spikes);
-	Rect.setPosition(sf::Vector2f(1344, 1018));
+	sf::RectangleShape spike = sf::RectangleShape();
+	spike.setTexture(&spikes);
+	spike.setPosition(sf::Vector2f(1344, 1018));
 
 	drawPyramind(window, 1504, 1018);
 	drawCoinsLevelOne(window);
 	levelOneText(window);
-	window.draw(Rect);
+	window.draw(spike);
 }
 
 void gameFloor::drawPyramind(sf::RenderWindow &window, float startX, float startY) {
