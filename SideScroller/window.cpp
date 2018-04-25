@@ -84,8 +84,8 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		
 		window.draw(background);
 
-			//View.setCenter(sf::Vector2f(p1.getX() + 300, 832));
-			window.setView(defaultView);
+			View.setCenter(sf::Vector2f(p1.getX() + 300, 832));
+			window.setView(View);
 
 			window.display();
 		}
@@ -130,6 +130,7 @@ void runGame::drawMenu(sf::RenderWindow &window) {
 			if (event.type == sf::Event::MouseButtonPressed && bHighScore.isButtonClicked(sf::Mouse::getPosition())) {
 				window.clear();
 				drawHighScoreScreen(window);
+				menuOpen = false;
 			}
 
 			window.setTitle("2D Side Scroller");
