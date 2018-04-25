@@ -1,8 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Network.hpp>
-
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -22,7 +20,5 @@
 #include "coin.h"
 
 #include "networking.h"
-
-#include "scores.h"
 
 using std::string;
