@@ -4,6 +4,7 @@ Character::Character(sf::Vector2f size, sf::Color color)
 {
 	character.setSize(size);
 	character.setFillColor(color);
+	scale = 1;
 }
 
 void Character::drawTo(sf::RenderWindow & window)
@@ -34,6 +35,11 @@ double Character::getScore()
 	return score;
 }
 
+void Character::setScore(double numAdd)
+{
+	score += numAdd;
+}
+
 
 float Character::getSizeY()
 {
@@ -43,4 +49,14 @@ float Character::getSizeY()
 float Character::getSizeX()
 {
 	return character.getSize().x;
+}
+
+sf::FloatRect Character::getGlobal()
+{
+	return character.getGlobalBounds();;
+}
+
+int Character::getScale()
+{
+	return scale;
 }

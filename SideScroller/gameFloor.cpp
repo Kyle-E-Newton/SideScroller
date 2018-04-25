@@ -164,3 +164,10 @@ void gameFloor::levelOneText(sf::RenderWindow & window)
 	window.draw(m4);
 	window.draw(m5);
 }
+
+sf::FloatRect gameFloor::getPlatBounds()
+{
+	return rect.getGlobalBounds();
+}
+
+
