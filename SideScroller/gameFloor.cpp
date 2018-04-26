@@ -33,7 +33,7 @@ void gameFloor::drawLevel(sf::RenderWindow &window) {
 	
 
 
-	//Section 1 (0 - 15)
+	//Level Platforms
 	Rect[0].setPosition(sf::Vector2f(160, 986));	window.draw(Rect[0]);
 	Rect[1].setPosition(sf::Vector2f(192, 986));	window.draw(Rect[1]);
 	Rect[2].setPosition(sf::Vector2f(224, 986));	window.draw(Rect[2]);
@@ -73,6 +73,7 @@ void gameFloor::drawLevel(sf::RenderWindow &window) {
 	window.draw(spike);
 }
 
+//Draws ending pyramid
 void gameFloor::drawPyramind(sf::RenderWindow &window, float startX, float startY) {
 	sf::Texture brick;
 	if (!brick.loadFromFile("resources/Brick1.png")) {}
@@ -113,6 +114,7 @@ void gameFloor::drawPyramind(sf::RenderWindow &window, float startX, float start
 	window.draw(Rect);
 }
 
+//Draws coins
 void gameFloor::drawCoinsLevelOne(sf::RenderWindow &window)
 {
 	coin c1(192, 954);
@@ -122,6 +124,7 @@ void gameFloor::drawCoinsLevelOne(sf::RenderWindow &window)
 	
 }
 
+//Tutorial Text
 void gameFloor::levelOneText(sf::RenderWindow & window)
 {
 	sf::Font comicSans;

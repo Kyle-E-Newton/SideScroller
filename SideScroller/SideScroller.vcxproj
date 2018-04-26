@@ -156,6 +156,7 @@
     <ClCompile Include="gameFloor.cpp" />
     <ClCompile Include="Gravity.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mob.cpp" />
     <ClCompile Include="networking.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
