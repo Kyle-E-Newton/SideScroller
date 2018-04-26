@@ -126,7 +126,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			}
 			else
 			{
-				position.x = p1.getX() + 10;
+				position.x = p1.getX() + 9;
 				position.y = g.getGh();
 				p1.setPos(position);
 				velocity.y = 0;
@@ -134,14 +134,41 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			collide = false;
 			//MoveLeft = false;
 		}
-		else if (collide == true && (p1.getGlobalBounds().top <= (collision->getGlobalBounds().top + collision->getGlobalBounds().height)) && MoveUp)
+		else if (collide == true)
 		{
-			//std::cout << "Up Collision" << std::endl;
-		}
-		else if (collide == true && (p1.getGlobalBounds().top + p1.getGlobalBounds().height >= collision->getGlobalBounds().top)) {
-			//std::cout << "Down Collision" << std::endl;
+			std::cout << "Up Collision" << std::endl;
+			p1.move(velocity);
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+			{
+				velocity.x = g.getMs();
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+			{
+				velocity.x = -g.getMs();
+			}
+			else
+			{
+				velocity.x = 0;
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			{
+				MoveUp = true;
+				velocity.y = -g.getdMs();
+			}
+
+		
+				position.x = p1.getX();
+				std::cout << " " << std::endl;
+				position.y = collision->getGlobalBounds().top - 30;
+				p1.setPos(position);
+				
+				velocity.y = 0;
+				
+			
 		}
 		 else if (!collide) {
+
 			p1.move(velocity);
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 			{
@@ -157,17 +184,14 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			{
+				MoveUp = true;
 				velocity.y = -g.getdMs();
 			}
 
 			if (p1.getY() + p1.getSizeY() < g.getGh() || velocity.y < 0)
 			{
-				least = velocity.y;
+				MoveDown = false;
 				velocity.y += g.getGs();
-				if (velocity.y == std::min(velocity.y, least))
-				{
-
-				}
 			}
 			else
 			{
@@ -210,6 +234,7 @@ void runGame::drawGameLevelOne(sf::RenderWindow &window) {
 		}*/
 
 		 m1.aiMove(&left, &right);
+		 
 		p1.move(velocity);
 		window.setTitle("2D Side Scroller");
 		window.setVerticalSyncEnabled(true);
